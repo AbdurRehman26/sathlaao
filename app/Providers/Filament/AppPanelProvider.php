@@ -26,13 +26,13 @@ class AppPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->colors([
+                'danger' => Color::Red,
+                'info' => Color::Blue,
+                'primary' => Color::Indigo,
+            ])
             ->id('app')
             ->path('app')
-            ->colors([
-                'primary' => Color::Gray,
-                'secondary' => Color::Orange,
-                'gray' => Color::Gray,
-            ])
             ->viteTheme('resources/css/filament/app/theme.css')
             ->brandLogo(fn() => view('filament.brand'))
             ->brandLogoHeight('30px')
