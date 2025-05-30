@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class DeliveryRequest extends Model
 {
     protected $fillable = [
-        'product_id', 'delivery_location', 'delivery_country',
+        'delivery_location', 'delivery_country',
         'preferred_delivery_date', 'delivery_deadline', 'status'
     ];
 

@@ -12,7 +12,7 @@ class CountrySeeder extends Seeder
 {
     public function run(): void
     {
-        $countries = Storage::disk('public')->get('countries.json');
+        $countries = Storage::get('countries.json');
 
         DB::table('countries')->truncate();
 

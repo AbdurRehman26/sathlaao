@@ -10,7 +10,6 @@ return new class extends Migration
     {
         Schema::create('delivery_requests', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->string('delivery_location');
             $table->string('delivery_country');
             $table->date('preferred_delivery_date')->nullable();
