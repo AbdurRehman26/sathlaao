@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('delivery_matches', function (Blueprint $table) {
             $table->id();
             $table->foreignId('delivery_request_id')->constrained()->onDelete('cascade');
-            $table->foreignId('travel_id')->constrained()->onDelete('cascade');
+            $table->foreignId('travel_id')->constrained('travels')->onDelete('cascade');
             $table->string('status')->default('pending');
             $table->text('message')->nullable();
             $table->timestamps();

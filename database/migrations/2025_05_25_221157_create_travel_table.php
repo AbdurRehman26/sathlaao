@@ -11,12 +11,12 @@ return new class extends Migration
         Schema::create('travels', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('from_country');
+            $table->foreignId('to_country');
             $table->string('from_location');
             $table->string('to_location');
-            $table->string('from_country');
-            $table->string('to_country');
-            $table->date('departure_date');
-            $table->date('arrival_date');
+            $table->dateTime('departure_date');
+            $table->dateTime('arrival_date');
             $table->string('airline')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();

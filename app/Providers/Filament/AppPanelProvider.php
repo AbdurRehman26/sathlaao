@@ -26,6 +26,7 @@ class AppPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->topNavigation()
             ->colors([
                 'danger' => Color::Red,
                 'info' => Color::Blue,

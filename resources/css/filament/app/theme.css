@@ -6,3 +6,4 @@
     @apply justify-end backdrop-blur-xl bg-indigo-500/30 rounded-xl shadow-2xl border border-white/20;
     padding: 0.5rem 5rem; /* Not supported by @apply due to shorthand */
 }
+
