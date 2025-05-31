@@ -16,6 +16,7 @@ class ListMyTravel extends ListRecords
     {
         return [
             Actions\CreateAction::make()
+                ->slideOver()
                 ->label('Add Travel Information')
                 ->createAnother(false)
                 ->action(function (array $data) {

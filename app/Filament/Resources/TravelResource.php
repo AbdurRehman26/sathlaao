@@ -54,7 +54,7 @@ class TravelResource extends Resource
                     Tables\Columns\TextColumn::make('notes')
                         ->limit(50)
                         ->label('Notes'),
-                ])
+                ])->space(2)
             ])
             ->contentGrid([
                 'md' => 2,

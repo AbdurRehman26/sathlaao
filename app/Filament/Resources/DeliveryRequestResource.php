@@ -13,6 +13,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class DeliveryRequestResource extends Resource
@@ -27,9 +28,9 @@ class DeliveryRequestResource extends Resource
             ->schema([
                 Section::make('Product Information')
                     ->schema([
-                        TextInput::make('name')->required(),
-                        TextInput::make('description')->required(),
-                        TextInput::make('link')->url()->required(),
+                        TextInput::make('product_name')->required(),
+                        TextInput::make('product_description')->required(),
+                        TextInput::make('product_link')->url()->required(),
                         TextInput::make('price')->label('Price (approx)')->required(),
                         Fieldset::make()->schema(
                             [
@@ -56,18 +57,13 @@ class DeliveryRequestResource extends Resource
     {
         return $table
             ->columns([
-                //
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                Tables\Columns\Layout\Stack::make([
+                    Tables\Columns\ViewColumn::make('profile_card')
+                        ->view('filament.cards.delivery-request'),
+                ])
+            ])->contentGrid([
+                'md' => 3,
+                'xl' => 3,
             ]);
     }
 
