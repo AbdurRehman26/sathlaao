@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class DeliveryRequest extends Model
 {
@@ -29,4 +30,6 @@ class DeliveryRequest extends Model
         return $this->hasManyThrough(Product::class, DeliveryRequestProduct::class, 'delivery_request_id', 'id');
     }
     public function matches(): HasMany { return $this->hasMany(DeliveryMatch::class); }
+
+    public function myMatch(): HasOne { return $this->hasOne(DeliveryMatch::class)->where('user_id', auth()->user()->id); }
 }

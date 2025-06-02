@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class DeliveryMatch extends Model
 {
     protected $fillable = [
-        'delivery_request_id', 'travel_id', 'status', 'message'
+        'delivery_request_id', 'travel_id', 'status', 'message', 'user_id'
     ];
 
     public function deliveryRequest(): BelongsTo { return $this->belongsTo(DeliveryRequest::class); }

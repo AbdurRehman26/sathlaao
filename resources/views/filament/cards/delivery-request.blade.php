@@ -36,7 +36,6 @@
                 x-text="open ? 'Hide Product Details' : 'Show Product Details'">
                 View Product Details
             </x-filament::button>
-            <x-filament::button color="success" icon="heroicon-o-globe-asia-australia">Chat</x-filament::button>
         </div>
         <!-- Collapsible Product Details Section -->
         <div x-show="open" x-transition class="mt-4 text-sm text-gray-700 dark:text-gray-300">

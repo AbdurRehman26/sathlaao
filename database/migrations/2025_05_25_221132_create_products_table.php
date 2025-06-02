@@ -16,7 +16,7 @@ return new class extends Migration
             $table->text('product_description')->nullable();
             $table->string('store_name')->nullable();
             $table->string('store_location')->nullable();
-            $table->decimal('price', 10, 2)->nullable();
+            $table->string('price')->nullable();
             $table->string('image_url')->nullable();
             $table->timestamps();
         });
