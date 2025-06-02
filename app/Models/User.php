@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Contracts\Auth\Authenticatable as UserContract;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,7 +22,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property Carbon $updated_at
  * @property string $timezone
  */
-class User extends Authenticatable implements MustVerifyEmail, UserContract
+class User extends Authenticatable implements MustVerifyEmail, UserContract, FilamentUser
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -29,6 +31,8 @@ class User extends Authenticatable implements MustVerifyEmail, UserContract
         'email',
         'password',
         'timezone',
+        'phone_number',
+        'facebook_profile'
     ];
 
     protected $hidden = [
@@ -42,6 +46,11 @@ class User extends Authenticatable implements MustVerifyEmail, UserContract
     ];
 
     public function isAdmin(): bool
+    {
+        return true;
+    }
+
+    public function canAccessPanel(Panel $panel): bool
     {
         return true;
     }
