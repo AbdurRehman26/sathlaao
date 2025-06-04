@@ -27,31 +27,6 @@ class MyTravelResource extends Resource
         return parent::getEloquentQuery()->where('user_id', auth()->user()->id);
     }
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                TextInput::make('from_location')
-                    ->label('From Location (city, airport etc)')->required(),
-                TextInput::make('to_location')
-                    ->label('To Location (city, airport etc)')->required(),
-                Select::make('from_country')
-                    ->options(Country::all()->pluck('name', 'id'))
-                    ->label('From Country')->required(),
-                Select::make('to_country')
-                    ->options(Country::all()->pluck('name', 'id'))
-                    ->label('To Country')->required(),
-                DateTimePicker::make('departure_date')
-                    ->label('Departure Date')->required(),
-                DateTimePicker::make('arrival_date')
-                    ->label('Arrival Date')->required(),
-                TextInput::make('airline')
-                    ->label('Airline (optional)'),
-                TextInput::make('notes')
-                    ->label('Notes (optional)')
-            ])->columns(2);
-    }
-
     public static function table(Table $table): Table
     {
         return $table

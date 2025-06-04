@@ -19,6 +19,7 @@ return new class extends Migration
             $table->dateTime('arrival_date');
             $table->string('airline')->nullable();
             $table->text('notes')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

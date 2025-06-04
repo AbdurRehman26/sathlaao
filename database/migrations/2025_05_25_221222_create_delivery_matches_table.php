@@ -15,6 +15,7 @@ return new class extends Migration
             $table->foreignId('travel_id')->constrained('travels')->onDelete('cascade');
             $table->string('status')->default('pending');
             $table->text('message')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Project;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -12,11 +11,6 @@ use Illuminate\Support\Str;
  */
 class UserFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
@@ -29,30 +23,10 @@ class UserFactory extends Factory
         ];
     }
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
     public function unverified(): static
     {
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
-    }
-
-    /**
-     * Indicate that the user should have a default project.
-     */
-    public function withDefaultProject(): static
-    {
-        return $this->state(function (array $attributes) {
-            return array_merge($attributes, $this->definition());
-        })->afterCreating(function (User $user) {
-            $project = Project::factory()->create([
-                'user_id' => $user->id,
-                'name' => $user->name.'\'s Project',
-            ]);
-            $user->current_project_id = $project->id;
-            $user->save();
-        });
     }
 }

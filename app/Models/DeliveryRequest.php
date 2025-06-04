@@ -7,12 +7,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DeliveryRequest extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'delivery_location', 'delivery_country',
-        'preferred_delivery_date', 'delivery_deadline', 'status', 'user_id'
+        'preferred_delivery_date', 'delivery_deadline', 'status', 'user_id', 'delivery_note',
+        'delivery_weight', 'delivery_price'
     ];
 
     public function deliveryCountry(): BelongsTo

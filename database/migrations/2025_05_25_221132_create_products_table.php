@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('store_location')->nullable();
             $table->string('price')->nullable();
             $table->string('image_url')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

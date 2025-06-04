@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->string('facebook_profile')->nullable();
             $table->string('timezone')->default('UTC');
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

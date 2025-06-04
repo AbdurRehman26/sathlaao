@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\Register;
+use App\Filament\Pages\EditProfile;
 use Exception;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -31,7 +32,7 @@ class AppPanelProvider extends PanelProvider
             ->colors([
                 'danger' => Color::Red,
                 'info' => Color::Blue,
-                'primary' => Color::Indigo,
+                'primary' => Color::Emerald,
             ])
             ->id('app')
             ->path('app')
@@ -48,7 +49,7 @@ class AppPanelProvider extends PanelProvider
             ->registration(Register::class)
             ->emailVerification()
             ->passwordReset()
-            ->profile(isSimple: false)
+            ->profile(page: EditProfile::class, isSimple: false)
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

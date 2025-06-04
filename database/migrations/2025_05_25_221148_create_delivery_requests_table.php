@@ -13,9 +13,13 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('delivery_location');
             $table->string('delivery_country');
+            $table->string('delivery_weight')->nullable();
+            $table->string('delivery_price')->nullable();
             $table->date('preferred_delivery_date')->nullable();
             $table->date('delivery_deadline')->nullable();
             $table->string('status')->default('pending');
+            $table->text('delivery_note')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
