@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('to_location');
             $table->dateTime('departure_date');
             $table->dateTime('arrival_date');
+            $table->string('weight_available')->nullable();
+            $table->string('weight_price')->nullable();
             $table->string('airline')->nullable();
             $table->text('notes')->nullable();
             $table->softDeletes();

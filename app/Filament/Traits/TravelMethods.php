@@ -36,6 +36,11 @@ trait TravelMethods
                             ->label('Departure Date')->required(),
                         DateTimePicker::make('arrival_date')
                             ->label('Arrival Date')->required(),
+                        TextInput::make('weight_available')->placeholder('Available weight (kg)')
+                            ->numeric()
+                            ->minValue(0)
+                            ->default(0),
+                        TextInput::make('weight_price')->placeholder('Price per kg (optional) with currency'),
                         TextInput::make('airline')
                             ->label('Airline (optional)'),
                         TextInput::make('notes')

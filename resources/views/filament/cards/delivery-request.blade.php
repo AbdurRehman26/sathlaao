@@ -1,10 +1,10 @@
 @php $record = $getRecord(); @endphp
 
 <div x-data="{ open: false }">
-    <div class="flex gap-1">
+    <div class="flex gap-14">
         <!-- Left Column -->
         <div class="w-4/6">
-        <span class="mb-4 inline-block justify-end px-0 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">
+        <span class="mb-4 inline-block justify-end px-3 py-2 text-xs font-bold rounded-full bg-yellow-100 text-yellow-800">
             {{ $record->matches()->count() }} Travel Request(s)
         </span>
 

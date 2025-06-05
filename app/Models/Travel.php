@@ -15,7 +15,8 @@ class Travel extends Model
 
     protected $fillable = [
         'user_id', 'from_location', 'to_location', 'from_country',
-        'to_country', 'departure_date', 'arrival_date', 'airline', 'notes'
+        'to_country', 'departure_date', 'arrival_date', 'airline', 'notes',
+        'weight_available', 'weight_price'
     ];
 
     public function toCountry(): BelongsTo { return $this->belongsTo(Country::class, 'to_country'); }

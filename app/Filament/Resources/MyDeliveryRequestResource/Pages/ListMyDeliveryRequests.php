@@ -4,6 +4,7 @@ namespace App\Filament\Resources\MyDeliveryRequestResource\Pages;
 
 use App\Filament\Resources\MyDeliveryRequestResource;
 use App\Filament\Traits\DeliveryRequestMethods;
+use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
 class ListMyDeliveryRequests extends ListRecords
@@ -17,7 +18,7 @@ class ListMyDeliveryRequests extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            $this->createDeliveryRequestAction()
+            $this->createDeliveryRequestAction(CreateAction::class),
         ];
     }
 }
