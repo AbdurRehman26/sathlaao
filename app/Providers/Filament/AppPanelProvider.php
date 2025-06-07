@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\Auth\Login;
 use App\Filament\Pages\Auth\Register;
 use App\Filament\Pages\EditProfile;
 use Exception;
@@ -45,7 +46,7 @@ class AppPanelProvider extends PanelProvider
             ->widgets([
                 //
             ])
-            ->login()
+            ->login(Login::class)
             ->registration(Register::class)
             ->emailVerification()
             ->passwordReset()
