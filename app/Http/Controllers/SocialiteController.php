@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Routing\Controller;
+use Illuminate\Validation\Validator;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialiteController extends Controller
@@ -41,7 +42,7 @@ class SocialiteController extends Controller
 
     protected function validateProvider(string $provider): array
     {
-        return $this->getValidationFactory()->make(
+        return \Illuminate\Support\Facades\Validator::make(
             ['provider' => $provider],
             ['provider' => 'in:google']
         )->validate();
