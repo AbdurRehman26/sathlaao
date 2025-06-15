@@ -28,21 +28,13 @@ return [
         'key' => env('RESEND_KEY'),
     ],
 
-    'slack' => [
-        'notifications' => [
-            'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
-            'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
-        ],
-    ],
-
     'webhook' => [
         'secret' => env('WEBHOOK_SECRET', 'secret'),
     ],
 
-    'telegram_bot' => [
-        'username' => env('TELEGRAM_BOT_USERNAME'),
-        'token' => env('TELEGRAM_BOT_TOKEN'),
-        'api' => 'https://api.telegram.org/bot'.env('TELEGRAM_BOT_TOKEN'),
-        'webhook_url' => env('TELEGRAM_BOT_WEBHOOK_UR', env('APP_URL').'/telegram/hook'),
+    'google' => [
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect'      => '/auth/google/callback',
     ],
 ];

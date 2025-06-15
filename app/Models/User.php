@@ -31,6 +31,7 @@ class User extends Authenticatable implements MustVerifyEmail, UserContract, Fil
         'email',
         'password',
         'timezone',
+        'google_id',
         'phone_number',
         'facebook_profile'
     ];

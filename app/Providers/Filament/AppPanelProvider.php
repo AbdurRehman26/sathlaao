@@ -34,6 +34,8 @@ class AppPanelProvider extends PanelProvider
                 'danger' => Color::Red,
                 'info' => Color::Blue,
                 'primary' => Color::Emerald,
+                'white' => Color::hex('#fff'),
+                'black' => Color::hex('#000'),
             ])
             ->id('app')
             ->path('app')
@@ -62,6 +64,10 @@ class AppPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->renderHook(
+                'panels::auth.login.form.after',
+                fn () => view('filament.auth.google')
+            )
             ->authMiddleware([
                 Authenticate::class,
             ]);
